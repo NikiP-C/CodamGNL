@@ -6,7 +6,7 @@
 /*   By: nphilipp <nphilipp@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/07 15:03:01 by nphilipp       #+#    #+#                */
-/*   Updated: 2019/11/26 17:42:34 by nphilipp      ########   odam.nl         */
+/*   Updated: 2019/12/13 16:41:22 by nphilipp      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int		free_string(char *str1, char *buf)
 	return (-1);
 }
 
-int		len_l(char *buf, int start, int br, int pick)
+int		len_l(char *buf, int start)
 {
 	if (buf == NULL)
 		return (0);
-	while (buf[start] != '\n' && buf[start] && (start < br || pick == 1))
+	while (buf[start] != '\n' && buf[start])
 	{
 		start++;
 	}
@@ -54,7 +54,7 @@ int		join_strings(char **dest, char *src, int k, int br)
 	return (k);
 }
 
-char	*ft_calloc(int len)
+char	*ft_calloc_s(int len)
 {
 	char	*str;
 	int		i;
@@ -77,7 +77,7 @@ int		makebuf(char **buf, int fd)
 
 	if (*buf == NULL)
 		*buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (buf == 0)
+	if (*buf == 0)
 		return (-1);
 	br = read(fd, *buf, BUFFER_SIZE);
 	if (br <= 0)
@@ -86,5 +86,6 @@ int		makebuf(char **buf, int fd)
 		*buf = NULL;
 		return (br);
 	}
+	(*buf)[br] = 0;
 	return (br);
 }

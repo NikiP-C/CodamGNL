@@ -6,7 +6,7 @@
 /*   By: nphilipp <nphilipp@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/16 12:29:59 by nphilipp       #+#    #+#                */
-/*   Updated: 2019/11/27 10:54:46 by nphilipp      ########   odam.nl         */
+/*   Updated: 2019/12/13 16:16:47 by nphilipp      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ int	main(int ac, char **av)
 	str = NULL;
 	if (ac >= 2)
 		fd = open(av[1], O_RDONLY);
-	while (retval == 1)
+	while (i < 22)
 	{
 		retval = get_next_line(fd, &str);
 		printf("%d | %s\n", retval, str);
-		free(str);
+		if (str != NULL)
+			free(str);
+		str = NULL;
 		i++;
 	}
 	return (0);
