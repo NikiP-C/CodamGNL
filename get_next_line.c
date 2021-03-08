@@ -5,16 +5,16 @@
 /*                                                     +:+                    */
 /*   By: nphilipp <nphilipp@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/16 10:24:11 by nphilipp       #+#    #+#                */
-/*   Updated: 2019/12/13 16:41:41 by nphilipp      ########   odam.nl         */
+/*   Created: 2019/11/16 10:24:11 by nphilipp      #+#    #+#                 */
+/*   Updated: 2021/03/08 19:31:33 by nphilipp      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void		make_line(char *line, char **str1)
+void	make_line(char *line, char **str1)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str1 == NULL || *str1 == NULL)
@@ -38,7 +38,7 @@ void		make_line(char *line, char **str1)
 
 static int	check_n(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (str == NULL)
@@ -79,7 +79,7 @@ static char	*ft_make_str(char *buf, int *start, int br, char *str)
 
 static int	check_fd(int fd, int *start)
 {
-	static int old_fd = 0;
+	static int	old_fd = 0;
 
 	if (old_fd != fd)
 	{
@@ -90,9 +90,9 @@ static int	check_fd(int fd, int *start)
 	return (0);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
-	static char *buf = NULL;
+	static char	*buf = NULL;
 	static int	br;
 	static int	start = 0;
 	static char	*str1 = NULL;

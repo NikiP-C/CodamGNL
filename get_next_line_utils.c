@@ -5,21 +5,21 @@
 /*                                                     +:+                    */
 /*   By: nphilipp <nphilipp@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/11/07 15:03:01 by nphilipp       #+#    #+#                */
-/*   Updated: 2019/12/13 16:41:22 by nphilipp      ########   odam.nl         */
+/*   Created: 2019/11/07 15:03:01 by nphilipp      #+#    #+#                 */
+/*   Updated: 2021/03/08 19:32:01 by nphilipp      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		free_string(char *str1, char *buf)
+int	free_string(char *str1, char *buf)
 {
 	free(buf);
 	free(str1);
 	return (-1);
 }
 
-int		len_l(char *buf, int start)
+int	len_l(char *buf, int start)
 {
 	if (buf == NULL)
 		return (0);
@@ -30,9 +30,9 @@ int		len_l(char *buf, int start)
 	return (start);
 }
 
-int		join_strings(char **dest, char *src, int k, int br)
+int	join_strings(char **dest, char *src, int k, int br)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (src == NULL)
@@ -71,9 +71,9 @@ char	*ft_calloc_s(int len)
 	return (str);
 }
 
-int		makebuf(char **buf, int fd)
+int	makebuf(char **buf, int fd)
 {
-	int br;
+	int	br;
 
 	if (*buf == NULL)
 		*buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
